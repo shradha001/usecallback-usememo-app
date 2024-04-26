@@ -13,24 +13,23 @@ interface FitProperties {
 
 const cssClassNames = {
   containerClassNames:
-    " px-40 pb-40 flex flex-col justify-center items-center w-[900px] h-[900px] mr-[100px] ",
-  pageTitleClassNames: "font-bold mb-4 text-teal-900 text-3xl",
+    " flex flex-col justify-center items-center w-1/2  my-0 mx-auto ",
+  pageTitleClassNames: "font-bold mb-4 text-teal-900 text-3xl mt-4",
   imageClassNames:
     " w-[500px] h-[400px] border-2 border-solid border-grey rounded-xl cursor-pointer ",
 
   buttonCSSClassNames:
     " hover:-translate-y-0.5 transition motion-reduce:hover:translate-y-0 motion-reduce:transition-none border border-solid border-black rounded-md text-sm inline-flex justify-center items-center px-7 py-3 mt-[20px] ",
-  buttonContainerClassNames: " flex gap-8 ",
+  buttonContainerClassNames: " flex gap-8 justify-center items-center",
 
-  textContainerClassNames:
-    " flex flex-col justify-center items-center h-[95px] w-[500px] mt-4",
+  textContainerClassNames: " flex flex-col justify-center items-center  mt-4  ",
   headingClassNames: " font-bold underline mt-1",
-  paragraphClassNames: " text-justify px-8 h-[90px] italic",
+  paragraphClassNames: " text-justify px-8 text-sm italic",
 
   likeBtnContainerClassNames: "flex flex-row justify-center items-center",
   ratingClassNames:
     "flex flex-row justify-center items-center relative w-[60px] h-[60px] bg-red-500 rounded-full mt-4 text-white",
-  ratingsContainerClassNames: "w-[500px]",
+  ratingsContainerClassNames: "w-full overflow-hidden",
 };
 
 const animeInfo: Anime[] = [

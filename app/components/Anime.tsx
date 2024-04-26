@@ -39,6 +39,7 @@ const ImageComponent = ({ info, toggleRenderStyle }: ImageProps) => {
       className={cssClassNames.imageClassNames + info.fit}
       src={info.url}
       onClick={toggleRenderStyle}
+      height={500}
     />
   );
 };
@@ -113,7 +114,7 @@ const Anime = () => {
   useEffect(() => {
     requestAnimationFrame(animate);
     function animate() {
-      setLeft(left >= 500 ? 0 : left + 1);
+      setLeft(left >= 400 ? 0 : left + 1);
     }
   }, [left]);
 
