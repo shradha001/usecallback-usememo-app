@@ -1,4 +1,12 @@
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import {
+  ReactElement,
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 import {
   cssClassNames,
@@ -39,7 +47,6 @@ const ImageComponent = ({ info, toggleRenderStyle }: ImageProps) => {
       className={cssClassNames.imageClassNames + info.fit}
       src={info.url}
       onClick={toggleRenderStyle}
-      height={500}
     />
   );
 };
@@ -81,6 +88,7 @@ const Anime = () => {
   const [quote, setQuote] = useState(0);
   const [imageRenderStyle, setImageRenderStyle] = useState(0);
   const [left, setLeft] = useState(0);
+  const containerRef = useRef(null);
 
   const rating = useMemo(() => {
     return getRatings(anime.title);
@@ -114,36 +122,38 @@ const Anime = () => {
   useEffect(() => {
     requestAnimationFrame(animate);
     function animate() {
-      setLeft(left >= 400 ? 0 : left + 1);
+      setLeft(left >= containerRef.current?.offsetWidth ?? 500 ? 0 : left + 1);
     }
   }, [left]);
 
   return (
-    <div className={cssClassNames.containerClassNames}>
-      <h1 className={cssClassNames.pageTitleClassNames}>Anime World</h1>
-      <Image info={imageInfo} toggleRenderStyle={toggleRenderStyle} />
-      <Text title={anime.title} quote={anime.quotes[quote]} />
-      <div className={cssClassNames.buttonContainerClassNames}>
-        <button
-          className={cssClassNames.buttonCSSClassNames}
-          onClick={toggleAnime}
-        >
-          Change Anime
-        </button>
-        <button
-          className={cssClassNames.buttonCSSClassNames}
-          onClick={toggleQuote}
-        >
-          Change Quote
-        </button>
-        <button
-          className={cssClassNames.buttonCSSClassNames}
-          onClick={toggleRenderStyle}
-        >
-          Change Image Render Style
-        </button>
+    <div className={cssClassNames.parentContainerClassNames}>
+      <div className={cssClassNames.containerClassNames} ref={containerRef}>
+        <h1 className={cssClassNames.pageTitleClassNames}>Anime World</h1>
+        <Image info={imageInfo} toggleRenderStyle={toggleRenderStyle} />
+        <Text title={anime.title} quote={anime.quotes[quote]} />
+        <div className={cssClassNames.buttonContainerClassNames}>
+          <button
+            className={cssClassNames.buttonCSSClassNames}
+            onClick={toggleAnime}
+          >
+            Change Anime
+          </button>
+          <button
+            className={cssClassNames.buttonCSSClassNames}
+            onClick={toggleQuote}
+          >
+            Change Quote
+          </button>
+          <button
+            className={cssClassNames.buttonCSSClassNames}
+            onClick={toggleRenderStyle}
+          >
+            Change Image Render Style
+          </button>
+        </div>
+        <Ratings ratings={rating} left={left} />
       </div>
-      <Ratings ratings={rating} left={left} />
     </div>
   );
 };

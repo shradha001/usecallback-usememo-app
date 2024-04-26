@@ -12,17 +12,19 @@ interface FitProperties {
 }
 
 const cssClassNames = {
-  containerClassNames:
-    " flex flex-col justify-center items-center w-1/2  my-0 mx-auto ",
+  parentContainerClassNames: "flex items-center justify-center h-[100vh]",
+  containerClassNames: " flex flex-col justify-center items-center w-1/2  ",
   pageTitleClassNames: "font-bold mb-4 text-teal-900 text-3xl mt-4",
   imageClassNames:
-    " w-[500px] h-[400px] border-2 border-solid border-grey rounded-xl cursor-pointer ",
+    " h-[200px] md:h-[300px] lg:h-[400px] w-full border-2 border-solid border-grey rounded-xl cursor-pointer ",
 
   buttonCSSClassNames:
     " hover:-translate-y-0.5 transition motion-reduce:hover:translate-y-0 motion-reduce:transition-none border border-solid border-black rounded-md text-sm inline-flex justify-center items-center px-7 py-3 mt-[20px] ",
-  buttonContainerClassNames: " flex gap-8 justify-center items-center",
+  buttonContainerClassNames:
+    " flex justify-center items-center flex-col gap-0 lg:flex-row lg:gap-8",
 
-  textContainerClassNames: " flex flex-col justify-center items-center  mt-4  ",
+  textContainerClassNames:
+    " flex flex-col justify-center items-center  mt-4 h-[130px] ",
   headingClassNames: " font-bold underline mt-1",
   paragraphClassNames: " text-justify px-8 text-sm italic",
 
