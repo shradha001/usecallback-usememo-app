@@ -1,4 +1,4 @@
-import Anime from "../shared/components/Anime";
+import Anime from "../components/Anime";
 
 export default function Index() {
   return (

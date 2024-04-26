@@ -6,7 +6,7 @@ import {
   nextItemIndexInArr,
   objFitProps,
   getRatings,
-} from "../../util";
+} from "../util";
 
 interface RatingProps {
   ratings: number;
